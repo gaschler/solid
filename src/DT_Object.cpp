@@ -116,19 +116,19 @@ bool intersectComplexComplex(const DT_Shape& a, const MT_Transform& a2w, MT_Scal
 					 (const DT_Complex&)b, b2w, b_margin, v);
 }
 
-IntersectTable *intersectInitialize() 
+IntersectTable& intersectInitialize() 
 {
-    IntersectTable *p = new IntersectTable;
-    p->addEntry(COMPLEX, COMPLEX, intersectComplexComplex);
-    p->addEntry(COMPLEX, CONVEX, intersectComplexConvex);
-    p->addEntry(CONVEX, CONVEX, intersectConvexConvex);
-    return p;
+    static IntersectTable table;
+    table.addEntry(COMPLEX, COMPLEX, intersectComplexComplex);
+    table.addEntry(COMPLEX, CONVEX, intersectComplexConvex);
+    table.addEntry(CONVEX, CONVEX, intersectConvexConvex);
+    return table;
 }
 
 bool intersect(const DT_Object& a, const DT_Object& b, MT_Vector3& v) 
 {
-    static IntersectTable *intersectTable = intersectInitialize();
-    Intersect intersect = intersectTable->lookup(a.getType(), b.getType());
+    static const IntersectTable& intersectTable = intersectInitialize();
+    Intersect intersect = intersectTable.lookup(a.getType(), b.getType());
     return intersect(a.m_shape, a.m_xform, a.m_margin, 
 		             b.m_shape, b.m_xform, b.m_margin, v);
 }
@@ -160,19 +160,19 @@ bool common_pointComplexComplex(const DT_Shape& a, const MT_Transform& a2w, MT_S
 						(const DT_Complex&)b, b2w, b_margin, v, pa, pb);
 }
 
-Common_pointTable *common_pointInitialize() 
+const Common_pointTable& common_pointInitialize() 
 {
-    Common_pointTable *p = new Common_pointTable;
-    p->addEntry(COMPLEX, COMPLEX, common_pointComplexComplex);
-    p->addEntry(COMPLEX, CONVEX, common_pointComplexConvex);
-    p->addEntry(CONVEX, CONVEX, common_pointConvexConvex);
-    return p;
+    static Common_pointTable table;
+    table.addEntry(COMPLEX, COMPLEX, common_pointComplexComplex);
+    table.addEntry(COMPLEX, CONVEX, common_pointComplexConvex);
+    table.addEntry(CONVEX, CONVEX, common_pointConvexConvex);
+    return table;
 }
 
 bool common_point(const DT_Object& a, const DT_Object& b, MT_Vector3& v, MT_Point3& pa, MT_Point3& pb) 
 {
-    static Common_pointTable *common_pointTable = common_pointInitialize();
-    Common_point common_point = common_pointTable->lookup(a.getType(), b.getType());
+    static const Common_pointTable& common_pointTable = common_pointInitialize();
+    Common_point common_point = common_pointTable.lookup(a.getType(), b.getType());
     return common_point(a.m_shape, a.m_xform, a.m_margin, 
 						b.m_shape, b.m_xform, b.m_margin, v, pa, pb);
 }
@@ -202,19 +202,19 @@ bool penetration_depthComplexComplex(const DT_Shape& a, const MT_Transform& a2w,
     return penetration_depth((const DT_Complex&)a, a2w, a_margin, (const DT_Complex&)b, b2w, b_margin, v, pa, pb);
 }
 
-Penetration_depthTable *penetration_depthInitialize() 
+const Penetration_depthTable& penetration_depthInitialize() 
 {
-    Penetration_depthTable *p = new Penetration_depthTable;
-    p->addEntry(COMPLEX, COMPLEX, penetration_depthComplexComplex);
-    p->addEntry(COMPLEX, CONVEX, penetration_depthComplexConvex);
-    p->addEntry(CONVEX, CONVEX, penetration_depthConvexConvex);
-    return p;
+    static Penetration_depthTable table;
+    table.addEntry(COMPLEX, COMPLEX, penetration_depthComplexComplex);
+    table.addEntry(COMPLEX, CONVEX, penetration_depthComplexConvex);
+    table.addEntry(CONVEX, CONVEX, penetration_depthConvexConvex);
+    return table;
 }
 
 bool penetration_depth(const DT_Object& a, const DT_Object& b, MT_Vector3& v, MT_Point3& pa, MT_Point3& pb) 
 {
-    static Penetration_depthTable *penetration_depthTable = penetration_depthInitialize();
-    Penetration_depth penetration_depth = penetration_depthTable->lookup(a.getType(), b.getType());
+    static const Penetration_depthTable& penetration_depthTable = penetration_depthInitialize();
+    Penetration_depth penetration_depth = penetration_depthTable.lookup(a.getType(), b.getType());
     return penetration_depth(a.m_shape, a.m_xform, a.m_margin, 
 		                     b.m_shape, b.m_xform, b.m_margin, v, pa, pb);
 }
@@ -247,20 +247,20 @@ MT_Scalar closest_pointsComplexComplex(const DT_Shape& a, const MT_Transform& a2
 						  (const DT_Complex&)b, b2w, b_margin, pa, pb);
 }
 
-Closest_pointsTable *closest_pointsInitialize()
+const Closest_pointsTable& closest_pointsInitialize()
 {
-    Closest_pointsTable *p = new Closest_pointsTable;
-    p->addEntry(COMPLEX, COMPLEX, closest_pointsComplexComplex);
-    p->addEntry(COMPLEX, CONVEX, closest_pointsComplexConvex);
-    p->addEntry(CONVEX, CONVEX, closest_pointsConvexConvex);
-    return p;
+    static Closest_pointsTable table;
+    table.addEntry(COMPLEX, COMPLEX, closest_pointsComplexComplex);
+    table.addEntry(COMPLEX, CONVEX, closest_pointsComplexConvex);
+    table.addEntry(CONVEX, CONVEX, closest_pointsConvexConvex);
+    return table;
 }
 
 MT_Scalar closest_points(const DT_Object& a, const DT_Object& b,
 						 MT_Point3& pa, MT_Point3& pb) 
 {
-    static Closest_pointsTable *closest_pointsTable = closest_pointsInitialize();
-    Closest_points closest_points = closest_pointsTable->lookup(a.getType(), b.getType());
+    static const Closest_pointsTable& closest_pointsTable = closest_pointsInitialize();
+    Closest_points closest_points = closest_pointsTable.lookup(a.getType(), b.getType());
     return closest_points(a.m_shape, a.m_xform, a.m_margin, 
 						  b.m_shape, b.m_xform, b.m_margin, pa, pb);
 }

@@ -1,3 +1,7 @@
+ChangeLog for SOLID 3.5.8 24/04/2015
+		  	  		  * Added CMake configuration
+                      * Fixed compilation and warnings fro gcc 4.8.3 (Thanks Sven Köhler)
+
 ChangeLog for SOLID 3.5.7 18/06/2013
                       * Fixed crash on calling DT_GetPenDepth, DT_GetClosestPiar, 
 					    and DT_GetCommonPoint with first object a convex and second

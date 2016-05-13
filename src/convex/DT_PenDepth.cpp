@@ -82,25 +82,25 @@ inline int originInTetrahedron(const MT_Vector3& p1, const MT_Vector3& p2,
                                const MT_Vector3& p3, const MT_Vector3& p4)
 {
     MT_Vector3 normal1 = cross(p2 - p1, p3 - p1);
-	if (dot(normal1, p1) > MT_Scalar(0.0) == dot(normal1, p4) > MT_Scalar(0.0))
+	if ((dot(normal1, p1) > MT_Scalar(0.0)) == (dot(normal1, p4) > MT_Scalar(0.0)))
     {
         return 4;
     }
     
     MT_Vector3 normal2 = cross(p4 - p2, p3 - p2);
-    if (dot(normal2, p2) > MT_Scalar(0.0) == dot(normal2, p1) > MT_Scalar(0.0))
+    if ((dot(normal2, p2) > MT_Scalar(0.0)) == (dot(normal2, p1) > MT_Scalar(0.0)))
     {
         return 1;
     }
     
     MT_Vector3 normal3 = cross(p4 - p3, p1 - p3);
-    if (dot(normal3, p3) > MT_Scalar(0.0) == dot(normal3, p2) > MT_Scalar(0.0))
+    if ((dot(normal3, p3) > MT_Scalar(0.0)) == (dot(normal3, p2) > MT_Scalar(0.0)))
     {
         return 2;
     }
     
     MT_Vector3 normal4 = cross(p2 - p4, p1 - p4);
-    if ( dot(normal4, p4) > MT_Scalar(0.0) == dot(normal4, p3) > MT_Scalar(0.0))
+    if ((dot(normal4, p4) > MT_Scalar(0.0)) == (dot(normal4, p3) > MT_Scalar(0.0)))
     {
         return 3; 
     }

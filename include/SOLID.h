@@ -81,50 +81,50 @@ extern "C" {
 /* Shape definition */
 
 
-	extern DECLSPEC DT_ShapeHandle DT_NewBox(DT_Scalar x, DT_Scalar y, DT_Scalar z);
-	extern DECLSPEC DT_ShapeHandle DT_NewCone(DT_Scalar radius, DT_Scalar height);
-	extern DECLSPEC DT_ShapeHandle DT_NewCylinder(DT_Scalar radius, DT_Scalar height);
-	extern DECLSPEC DT_ShapeHandle DT_NewSphere(DT_Scalar radius);
-	extern DECLSPEC DT_ShapeHandle DT_NewPoint(const DT_Vector3 point);
-	extern DECLSPEC DT_ShapeHandle DT_NewLineSegment(const DT_Vector3 source, const DT_Vector3 target);
-	extern DECLSPEC DT_ShapeHandle DT_NewMinkowski(DT_ShapeHandle shape1, DT_ShapeHandle shape2);
-	extern DECLSPEC DT_ShapeHandle DT_NewHull(DT_ShapeHandle shape1, DT_ShapeHandle shape2);
+	DECLSPEC DT_ShapeHandle DT_NewBox(DT_Scalar x, DT_Scalar y, DT_Scalar z);
+	DECLSPEC DT_ShapeHandle DT_NewCone(DT_Scalar radius, DT_Scalar height);
+	DECLSPEC DT_ShapeHandle DT_NewCylinder(DT_Scalar radius, DT_Scalar height);
+	DECLSPEC DT_ShapeHandle DT_NewSphere(DT_Scalar radius);
+	DECLSPEC DT_ShapeHandle DT_NewPoint(const DT_Vector3 point);
+	DECLSPEC DT_ShapeHandle DT_NewLineSegment(const DT_Vector3 source, const DT_Vector3 target);
+	DECLSPEC DT_ShapeHandle DT_NewMinkowski(DT_ShapeHandle shape1, DT_ShapeHandle shape2);
+	DECLSPEC DT_ShapeHandle DT_NewHull(DT_ShapeHandle shape1, DT_ShapeHandle shape2);
 
-	extern DECLSPEC DT_VertexBaseHandle DT_NewVertexBase(const void *pointer, DT_Size stride);
-	extern DECLSPEC void DT_DeleteVertexBase(DT_VertexBaseHandle vertexBase);	
-	extern DECLSPEC void DT_ChangeVertexBase(DT_VertexBaseHandle vertexBase, const void *pointer);
+	DECLSPEC DT_VertexBaseHandle DT_NewVertexBase(const void *pointer, DT_Size stride);
+	DECLSPEC void DT_DeleteVertexBase(DT_VertexBaseHandle vertexBase);	
+	DECLSPEC void DT_ChangeVertexBase(DT_VertexBaseHandle vertexBase, const void *pointer);
 
-	extern DECLSPEC DT_ShapeHandle DT_NewComplexShape(DT_VertexBaseHandle vertexBase);
-	extern DECLSPEC void           DT_EndComplexShape();
+	DECLSPEC DT_ShapeHandle DT_NewComplexShape(DT_VertexBaseHandle vertexBase);
+	DECLSPEC void           DT_EndComplexShape();
 
-	extern DECLSPEC DT_ShapeHandle DT_NewPolytope(DT_VertexBaseHandle vertexBase);
-	extern DECLSPEC void           DT_EndPolytope();
+	DECLSPEC DT_ShapeHandle DT_NewPolytope(DT_VertexBaseHandle vertexBase);
+	DECLSPEC void           DT_EndPolytope();
 
-	extern DECLSPEC void DT_Begin();
-	extern DECLSPEC void DT_End();
+	DECLSPEC void DT_Begin();
+	DECLSPEC void DT_End();
 
-	extern DECLSPEC void DT_Vertex(const DT_Vector3 vertex);
-	extern DECLSPEC void DT_VertexIndex(DT_Index index);
+	DECLSPEC void DT_Vertex(const DT_Vector3 vertex);
+	DECLSPEC void DT_VertexIndex(DT_Index index);
 
-	extern DECLSPEC void DT_VertexIndices(DT_Count count, const DT_Index *indices);
-	extern DECLSPEC void DT_VertexRange(DT_Index first, DT_Count count); 
+	DECLSPEC void DT_VertexIndices(DT_Count count, const DT_Index *indices);
+	DECLSPEC void DT_VertexRange(DT_Index first, DT_Count count); 
 
-	extern DECLSPEC void DT_DeleteShape(DT_ShapeHandle shape);
+	DECLSPEC void DT_DeleteShape(DT_ShapeHandle shape);
 
 /* Object  */
 
-	extern DECLSPEC DT_ObjectHandle DT_CreateObject(
+	DECLSPEC DT_ObjectHandle DT_CreateObject(
 		void *client_object,      /* pointer to object in client memory */
 		DT_ShapeHandle shape  /* the shape or geometry of the object */
 		);
 
-	extern DECLSPEC void DT_DestroyObject(DT_ObjectHandle object);
+	DECLSPEC void DT_DestroyObject(DT_ObjectHandle object);
 
 
 
-	extern DECLSPEC void DT_SetPosition(DT_ObjectHandle object, const DT_Vector3 position);
-	extern DECLSPEC void DT_SetOrientation(DT_ObjectHandle object, const DT_Quaternion orientation);
-	extern DECLSPEC void DT_SetScaling(DT_ObjectHandle object, const DT_Vector3 scaling);
+	DECLSPEC void DT_SetPosition(DT_ObjectHandle object, const DT_Vector3 position);
+	DECLSPEC void DT_SetOrientation(DT_ObjectHandle object, const DT_Quaternion orientation);
+	DECLSPEC void DT_SetScaling(DT_ObjectHandle object, const DT_Vector3 scaling);
 
 /* The margin is an offset from the actual shape. The actual geometry of an
    object is the set of points whose distance to the transformed shape is at 
@@ -132,39 +132,39 @@ extern "C" {
    modified. 
 */
    
-	extern DECLSPEC void DT_SetMargin(DT_ObjectHandle object, DT_Scalar margin);
+	DECLSPEC void DT_SetMargin(DT_ObjectHandle object, DT_Scalar margin);
 
 
 /* These commands assume a column-major 4x4 OpenGL matrix representation */
 
-	extern DECLSPEC void DT_SetMatrixf(DT_ObjectHandle object, const float *m); 
-	extern DECLSPEC void DT_GetMatrixf(DT_ObjectHandle object, float *m); 
+	DECLSPEC void DT_SetMatrixf(DT_ObjectHandle object, const float *m); 
+	DECLSPEC void DT_GetMatrixf(DT_ObjectHandle object, float *m); 
 
-	extern DECLSPEC void DT_SetMatrixd(DT_ObjectHandle object, const double *m); 
-	extern DECLSPEC void DT_GetMatrixd(DT_ObjectHandle object, double *m); 
+	DECLSPEC void DT_SetMatrixd(DT_ObjectHandle object, const double *m); 
+	DECLSPEC void DT_GetMatrixd(DT_ObjectHandle object, double *m); 
 
-	extern DECLSPEC void DT_GetBBox(DT_ObjectHandle object, DT_Vector3 min, DT_Vector3 max);
+	DECLSPEC void DT_GetBBox(DT_ObjectHandle object, DT_Vector3 min, DT_Vector3 max);
 
 
 /* This next command returns the distance between the objects. De returned
    closest points are given in world coordinates.
 */
-	extern DECLSPEC DT_Scalar DT_GetClosestPair(DT_ObjectHandle object1, DT_ObjectHandle object2,
+	DECLSPEC DT_Scalar DT_GetClosestPair(DT_ObjectHandle object1, DT_ObjectHandle object2,
 												DT_Vector3 point1, DT_Vector3 point2);  
 
-	extern DECLSPEC DT_Bool   DT_GetCommonPoint(DT_ObjectHandle object1, DT_ObjectHandle object2,
+	DECLSPEC DT_Bool   DT_GetCommonPoint(DT_ObjectHandle object1, DT_ObjectHandle object2,
 												DT_Vector3 point);
 
-	extern DECLSPEC DT_Bool   DT_GetPenDepth(DT_ObjectHandle object1, DT_ObjectHandle object2,
+	DECLSPEC DT_Bool   DT_GetPenDepth(DT_ObjectHandle object1, DT_ObjectHandle object2,
 											 DT_Vector3 point1, DT_Vector3 point2);  
 
 /* Scene */
 
-	extern DECLSPEC DT_SceneHandle DT_CreateScene(); 
-	extern DECLSPEC void           DT_DestroyScene(DT_SceneHandle scene);
+	DECLSPEC DT_SceneHandle DT_CreateScene(); 
+	DECLSPEC void           DT_DestroyScene(DT_SceneHandle scene);
 
-	extern DECLSPEC void DT_AddObject(DT_SceneHandle scene, DT_ObjectHandle object);
-	extern DECLSPEC void DT_RemoveObject(DT_SceneHandle scene, DT_ObjectHandle object);
+	DECLSPEC void DT_AddObject(DT_SceneHandle scene, DT_ObjectHandle object);
+	DECLSPEC void DT_RemoveObject(DT_SceneHandle scene, DT_ObjectHandle object);
 
 /* Note that objects can be assigned to multiple scenes! */
 
@@ -174,26 +174,26 @@ extern "C" {
    Multiple response tables can be used in one scene, and a response table
    can be shared among scenes.
 */
-	extern DECLSPEC DT_RespTableHandle DT_CreateRespTable(); 
-	extern DECLSPEC void               DT_DestroyRespTable(DT_RespTableHandle respTable); 
+	DECLSPEC DT_RespTableHandle DT_CreateRespTable(); 
+	DECLSPEC void               DT_DestroyRespTable(DT_RespTableHandle respTable); 
 
 /* Responses are defined on (pairs of) response classes. Each response table 
    maintains its set of response classes.
 */
-	extern DECLSPEC DT_ResponseClass DT_GenResponseClass(DT_RespTableHandle respTable);
+	DECLSPEC DT_ResponseClass DT_GenResponseClass(DT_RespTableHandle respTable);
 
 /* To each object for which a response is defined in the response table a
    response class needs to be assigned. 
 */
 
-	extern DECLSPEC void DT_SetResponseClass(DT_RespTableHandle respTable,
+	DECLSPEC void DT_SetResponseClass(DT_RespTableHandle respTable,
 											 DT_ObjectHandle object,
 											 DT_ResponseClass responseClass);
 
-	extern DECLSPEC void DT_ClearResponseClass(DT_RespTableHandle respTable, 
+	DECLSPEC void DT_ClearResponseClass(DT_RespTableHandle respTable, 
 											   DT_ObjectHandle object);
 
-	extern DECLSPEC void DT_CallResponse(DT_RespTableHandle respTable,
+	DECLSPEC void DT_CallResponse(DT_RespTableHandle respTable,
 										 DT_ObjectHandle object1,
 										 DT_ObjectHandle object2,
 										 const DT_CollData *coll_data);
@@ -202,29 +202,29 @@ extern "C" {
    together with its response type and client data. */
     
 /* Responses can be defined for all pairs of response classes... */
-	extern DECLSPEC void DT_AddDefaultResponse(DT_RespTableHandle respTable,
+	DECLSPEC void DT_AddDefaultResponse(DT_RespTableHandle respTable,
 											   DT_ResponseCallback response, 
 											   DT_ResponseType type, void *client_data);
 
-	extern DECLSPEC void DT_RemoveDefaultResponse(DT_RespTableHandle respTable,
+	DECLSPEC void DT_RemoveDefaultResponse(DT_RespTableHandle respTable,
 												  DT_ResponseCallback response);
 /* ...per response class... */
-	extern DECLSPEC void DT_AddClassResponse(DT_RespTableHandle respTable,
+	DECLSPEC void DT_AddClassResponse(DT_RespTableHandle respTable,
 											 DT_ResponseClass responseClass,
 											 DT_ResponseCallback response,
 											 DT_ResponseType type, void *client_data);
 
-	extern DECLSPEC void DT_RemoveClassResponse(DT_RespTableHandle respTable,
+	DECLSPEC void DT_RemoveClassResponse(DT_RespTableHandle respTable,
 												DT_ResponseClass responseClass,
 												DT_ResponseCallback response);
 
 /* ... and per pair of response classes...*/
-	extern DECLSPEC void DT_AddPairResponse(DT_RespTableHandle respTable,
+	DECLSPEC void DT_AddPairResponse(DT_RespTableHandle respTable,
 											DT_ResponseClass responseClass1,
 											DT_ResponseClass responseClass2, 
 											DT_ResponseCallback response,
 											DT_ResponseType type, void *client_data);
-	extern DECLSPEC void DT_RemovePairResponse(DT_RespTableHandle respTable,
+	DECLSPEC void DT_RemovePairResponse(DT_RespTableHandle respTable,
 											   DT_ResponseClass responseClass1,
 											   DT_ResponseClass responseClass2,
 											   DT_ResponseCallback response);
@@ -233,21 +233,21 @@ extern "C" {
    'DT_Test' returns the number of pairs of objects for which callbacks have been called. 
 */
  
-	extern DECLSPEC DT_Count DT_Test(DT_SceneHandle scene, DT_RespTableHandle respTable);
+	DECLSPEC DT_Count DT_Test(DT_SceneHandle scene, DT_RespTableHandle respTable);
 
 /* Set the maximum relative error in the closest points and penetration depth
    computation. The default for `max_error' is 1.0e-3. Larger errors result
    in better performance. Non-positive error tolerances are ignored.
 */ 
 
-	extern DECLSPEC void DT_SetAccuracy(DT_Scalar max_error);
+	DECLSPEC void DT_SetAccuracy(DT_Scalar max_error);
 
 /* Set the maximum tolerance on relative errors due to rounding.  The default for `tol_error' 
    is the machine epsilon. Very large tolerances result in false collisions. Setting tol_error too small 
    results in missed collisions. Non-positive error tolerances are ignored. 
 */ 
     
-	extern DECLSPEC void DT_SetTolerance(DT_Scalar tol_error);
+	DECLSPEC void DT_SetTolerance(DT_Scalar tol_error);
 
 
 /* This function returns the client pointer to the first object in a scene hit by the ray 
@@ -258,13 +258,13 @@ extern "C" {
    NB: Currently ray tests are implemented for spheres, boxes, and meshes only!!
 */   
 
-	extern DECLSPEC void *DT_RayCast(DT_SceneHandle scene, void *ignore_client,
+	DECLSPEC void *DT_RayCast(DT_SceneHandle scene, void *ignore_client,
 									 const DT_Vector3 source, const DT_Vector3 target,
 									 DT_Scalar max_param, DT_Scalar *param, DT_Vector3 normal);
 
 /* Similar, only here a single object is tested and a boolean is returned */
 
-	extern DECLSPEC DT_Bool DT_ObjectRayCast(DT_ObjectHandle object,
+	DECLSPEC DT_Bool DT_ObjectRayCast(DT_ObjectHandle object,
 											 const DT_Vector3 source, const DT_Vector3 target,
 											 DT_Scalar max_param, DT_Scalar *param, DT_Vector3 normal);
 

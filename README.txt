@@ -42,15 +42,16 @@ obtained via anonymous ftp from geom.umn.edu.
 
 Installation
 
-For details on how to install SOLID see the documentation in the 'doc'
+SOLID builds can be configured using CMake for all platforms. For details on 
+how to install SOLID using autoconf tools see the documentation in the 'doc'
 directory. 
 
 Platforms
 
 SOLID 3 has been tested on the following platforms:
 
-    Linux x86, x86_64	gcc 2.95, gcc 3.3, gcc 3.4
-	Win32		        MSVC++ 6.0 SP4, MSVC++ 7.1 
+    Linux x86, x86_64	gcc 2.95, gcc 3.3, gcc 3.4, gcc 4.8
+	Win32		        MSVC++ 6.0 up to MSVC++ 12 
 
 
 Some of the example applications use GLUT. GLUT is a utility toolkit for

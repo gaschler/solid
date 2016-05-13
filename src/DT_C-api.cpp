@@ -259,7 +259,7 @@ void DT_VertexIndices(DT_Count count, const DT_Index *indices)
     if (currentPolyhedron) 
 	{
 		int i;
-		for (i = 0; i < count; ++i) 
+		for (i = 0; i < int(count); ++i) 
 		{
             indexBuf.push_back(indices[i]);
         }

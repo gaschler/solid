@@ -36,14 +36,12 @@ MT_BBox DT_Polytope::bbox() const
 
 MT_Scalar DT_Polytope::supportH(const MT_Vector3& v) const 
 {
-    int c = 0;
     MT_Scalar h = (*this)[0].dot(v), d;
 	DT_Index i;
     for (i = 1; i < numVerts(); ++i) 
 	{
         if ((d = (*this)[i].dot(v)) > h) 
 		{ 
-			c = i; 
 			h = d; 
 		}
     }

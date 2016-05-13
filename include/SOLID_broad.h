@@ -43,25 +43,25 @@ extern "C" {
 									   const DT_Vector3 target,
 									   DT_Scalar *lambda);
 	
-	extern DECLSPEC BP_SceneHandle BP_CreateScene(void *client_data,
+	DECLSPEC BP_SceneHandle BP_CreateScene(void *client_data,
 												  BP_Callback beginOverlap,
 												  BP_Callback endOverlap);
 	
-	extern DECLSPEC void           BP_DestroyScene(BP_SceneHandle scene);
+	DECLSPEC void           BP_DestroyScene(BP_SceneHandle scene);
 	
-	extern DECLSPEC BP_ProxyHandle BP_CreateProxy(BP_SceneHandle scene, 
+	DECLSPEC BP_ProxyHandle BP_CreateProxy(BP_SceneHandle scene, 
 												  void *object,
 												  const DT_Vector3 min, 
 												  const DT_Vector3 max);
 	
-	extern DECLSPEC void           BP_DestroyProxy(BP_SceneHandle scene, 
+	DECLSPEC void           BP_DestroyProxy(BP_SceneHandle scene, 
 												  BP_ProxyHandle proxy);
 	
-	extern DECLSPEC void BP_SetBBox(BP_ProxyHandle proxy, 
+	DECLSPEC void BP_SetBBox(BP_ProxyHandle proxy, 
 									const DT_Vector3 min, 
 									const DT_Vector3 max);
 	
-	extern DECLSPEC void *BP_RayCast(BP_SceneHandle scene, 
+	DECLSPEC void *BP_RayCast(BP_SceneHandle scene, 
 									 BP_RayCastCallback objectRayCast, 
 									 void *client_data,
 									 const DT_Vector3 source,

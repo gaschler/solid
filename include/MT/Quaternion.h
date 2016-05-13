@@ -66,10 +66,12 @@ namespace MT {
 
 		template <typename Scalar2>
 		void setEuler(const Scalar2& yaw, const Scalar2& pitch, const Scalar2& roll)
-		{
-			Scalar halfYaw = Scalar(yaw) * Scalar(0.5);  
+		{	
+            // yaw is CW around y-axis, pitch is CCW around x-axis, and roll is CW around z-axis
+
+			Scalar halfYaw = Scalar(-yaw) * Scalar(0.5);  
 			Scalar halfPitch = Scalar(pitch) * Scalar(0.5);  
-			Scalar halfRoll = Scalar(roll) * Scalar(0.5);  
+			Scalar halfRoll = Scalar(-roll) * Scalar(0.5);  
 			Scalar cosYaw = Scalar_traits<Scalar>::cos(halfYaw);
 			Scalar sinYaw = Scalar_traits<Scalar>::sin(halfYaw);
 			Scalar cosPitch = Scalar_traits<Scalar>::cos(halfPitch);
@@ -154,7 +156,7 @@ namespace MT {
 
 		Quaternion<Scalar> inverse() const
 		{
-			return conjugate / length2();
+		    return conjugate() / length2();
 		}
 		
 		Quaternion<Scalar> slerp(const Quaternion<Scalar>& q, const Scalar& t) const

@@ -99,7 +99,7 @@ void DT_Complex::finish(DT_Count n, const DT_Convex *p[])
         int num_nodes = 0;
         new(&m_nodes[num_nodes++]) DT_BBoxNode(0, n, num_nodes, m_nodes, boxes, indices, m_cbox);
 
-        assert(num_nodes == n - 1);
+        assert(num_nodes == int(n - 1));
         
         m_type = DT_BBoxTree::INTERNAL;
     }
@@ -120,19 +120,7 @@ MT_BBox DT_Complex::bbox(const MT_Transform& t, MT_Scalar margin) const
     return MT_BBox(center - extent, center + extent);
 }
 
-inline DT_CBox computeCBox(const DT_Convex *p)
-{
-    return DT_CBox(p->bbox()); 
-}
 
-inline DT_CBox computeCBox(MT_Scalar margin, const MT_Transform& xform) 
-{
-    const MT_Matrix3x3& basis = xform.getBasis();
-    return DT_CBox(MT_Point3(MT_Scalar(0.0), MT_Scalar(0.0), MT_Scalar(0.0)), 
-                   MT_Vector3(basis[0].length() * margin, 
-                              basis[1].length() * margin, 
-                              basis[2].length() * margin));
-} 
 
 void DT_Complex::refit()
 {

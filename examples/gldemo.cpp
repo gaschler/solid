@@ -75,7 +75,8 @@ const MT_Scalar SCALE_RANGE  = 2.0f; // Range for scaling
 class Shape {
 public:
 	Shape(DT_ShapeHandle shape = 0) : m_shape(shape) {}
-	
+    virtual ~Shape() {}	
+
 	void setShape(DT_ShapeHandle shape) { m_shape = shape; }
 
 	DT_ShapeHandle getShape() const { return m_shape; }

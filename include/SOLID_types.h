@@ -24,12 +24,16 @@
 #ifndef SOLID_TYPES_H
 #define SOLID_TYPES_H
 
-#ifndef DECLSPEC
-# ifdef WIN32
-#  define DECLSPEC __declspec(dllexport)
-# else
-#  define DECLSPEC
-# endif
+#if defined(_WIN32)
+#   if defined(SOLID_STATIC)
+#      define DECLSPEC extern
+#   elif defined(SOLID_DLL_EXPORT)
+#      define DECLSPEC __declspec(dllexport)
+#   else 
+#      define DECLSPEC __declspec(dllimport)
+#   endif
+#else
+#   define DECLSPEC extern
 #endif
 
 #define DT_DECLARE_HANDLE(name) typedef struct name##__ { int unused; } *name
