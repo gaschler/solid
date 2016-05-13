@@ -1,3 +1,11 @@
+ChangeLog for SOLID 3.5.7 18/06/2013
+                      * Fixed crash on calling DT_GetPenDepth, DT_GetClosestPiar, 
+					    and DT_GetCommonPoint with first object a convex and second
+						object a complex. Thanks Robin Tomcin.
+
+                      * Fixed segmentation fault in qhull under gcc 4.1.x - 4.3.x. 
+					    Thanks Florian Kamm for the build fix.                  
+
 ChangeLog for SOLID 3.5.6 06/05/2007
                       * Fixed bug in creation of Dobkin-Kirkpatrick hierarchy. Thanks Markus Rickert.
 

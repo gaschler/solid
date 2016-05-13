@@ -24,4 +24,7 @@ libqhull_la_SOURCES = \
 	stat.h \
 	user.h
 
+AM_CFLAGS = -fno-strict-aliasing
+
+
 

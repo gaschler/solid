@@ -395,10 +395,19 @@ DT_Scalar DT_GetClosestPair(DT_ObjectHandle object1, DT_ObjectHandle object2,
 	assert(object2);
 
     MT_Point3 p1, p2;
-    
-    MT_Scalar result = closest_points(*reinterpret_cast<DT_Object *>(object1), 
-									  *reinterpret_cast<DT_Object *>(object2),
-									  p1, p2);
+
+    DT_Object* a = reinterpret_cast<DT_Object *>(object1);
+    DT_Object* b = reinterpret_cast<DT_Object *>(object2);
+ 
+    MT_Scalar result;
+    if (b->getType() < a->getType())
+    { 
+        result = closest_points(*b, *a, p2, p1);
+    }
+    else
+    {
+        result = closest_points(*a, *b, p1, p2);
+    }
 	p1.getValue(point1);
 	p2.getValue(point2);
 
@@ -413,10 +422,19 @@ DT_Bool DT_GetCommonPoint(DT_ObjectHandle object1, DT_ObjectHandle object2,
 
 	MT_Vector3  v(MT_Scalar(0.0), MT_Scalar(0.0), MT_Scalar(0.0)); 
     MT_Point3   p1, p2;
-    
-    bool result = common_point(*reinterpret_cast<DT_Object *>(object1), 
-							   *reinterpret_cast<DT_Object *>(object2),
-							   v, p1, p2);
+
+    DT_Object* a = reinterpret_cast<DT_Object *>(object1);
+    DT_Object* b = reinterpret_cast<DT_Object *>(object2);
+ 
+    bool result;
+    if (b->getType() < a->getType())
+    { 
+        result = common_point(*b, *a, v, p2, p1);
+    }
+    else
+    {
+        result = common_point(*a, *b, v, p1, p2);
+    }
 
 	if (result) 
 	{
@@ -435,9 +453,19 @@ DT_Bool DT_GetPenDepth(DT_ObjectHandle object1, DT_ObjectHandle object2,
 	MT_Vector3  v(MT_Scalar(0.0), MT_Scalar(0.0), MT_Scalar(0.0)); 
     MT_Point3   p1, p2;
     
-    bool result = penetration_depth(*reinterpret_cast<DT_Object *>(object1), 
-									*reinterpret_cast<DT_Object *>(object2),
-									v, p1, p2);
+    DT_Object* a = reinterpret_cast<DT_Object *>(object1);
+    DT_Object* b = reinterpret_cast<DT_Object *>(object2);
+ 
+    bool result;
+    if (b->getType() < a->getType())
+    { 
+        result = penetration_depth(*b, *a, v, p2, p1);
+    }
+    else
+    { 
+        result = penetration_depth(*a, *b, v, p1, p2);
+    }
+
 
 	if (result) 
 	{
