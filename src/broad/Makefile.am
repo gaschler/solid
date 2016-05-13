@@ -9,4 +9,7 @@ libbroad_la_SOURCES = \
 	BP_Proxy.h \
 	BP_ProxyList.h \
 	BP_Scene.cpp \
-	BP_Scene.h 
+	BP_Scene.h
+
+AM_CPPFLAGS = -I$(top_srcdir)/include
+ 

@@ -36,5 +36,5 @@ libconvex_la_SOURCES = \
 	DT_Triangle.h \
 	DT_VertexBase.h
 
-AM_CPPFLAGS = @DOUBLES_FLAG@ @TRACER_FLAG@
+AM_CPPFLAGS = -I$(top_srcdir)/include @DOUBLES_FLAG@ @TRACER_FLAG@
 libconvex_la_LIBADD = @QHULL_LIBS@

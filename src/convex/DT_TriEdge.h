@@ -40,6 +40,11 @@ typedef unsigned short Index_t;
 class Edge;
 class TriangleStore;
 
+
+bool link(const Edge& edge0, const Edge& edge1);
+void half_link(const Edge& edge0, const Edge& edge1);
+
+
 class Edge {
 private:    
     Triangle *m_triangle;

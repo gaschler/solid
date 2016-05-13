@@ -14,6 +14,6 @@ gldemo_LDADD = ../src/libsolid.la $(GLLIBS)
 physics_LDADD = dynamics/libdynamics.la ../src/libsolid.la $(GLLIBS)
 mnm_LDADD = dynamics/libdynamics.la ../src/libsolid.la $(GLLIBS)
 
-AM_CPPFLAGS = -Idynamics
+AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/examples/dynamics
 
 EXTRA_DIST = README.txt

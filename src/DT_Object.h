@@ -42,7 +42,8 @@ public:
     DT_Object(void *client_object, const DT_Shape& shape) :
 		m_client_object(client_object),
 		m_shape(shape), 
-		m_margin(MT_Scalar(0.0))
+		m_margin(MT_Scalar(0.0)),
+        m_responseClass(0)
 	{
 		m_xform.setIdentity();
 		if (m_shape.getType() == COMPLEX)

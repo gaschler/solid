@@ -21,4 +21,4 @@ libsolid_la_LIBADD = \
 	complex/libcomplex.la \
 	qhull/libqhull.la	 
 
-AM_CPPFLAGS = -Iconvex -Icomplex @DOUBLES_FLAG@ @TRACER_FLAG@
+AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src/convex -I$(top_srcdir)/src/complex @DOUBLES_FLAG@ @TRACER_FLAG@

@@ -94,7 +94,7 @@ private:
 	typedef std::vector<DT_ResponseList> T_SingleList;
 
 public:
-	DT_RespTable() : m_responseClass(0) {}
+	DT_RespTable() : m_responseClass(0) { genResponseClass(); }
 
 	~DT_RespTable();
 

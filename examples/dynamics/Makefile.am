@@ -7,3 +7,5 @@ libdynamics_la_SOURCES = \
 	Kinetic.h \
 	RigidBody.cpp \
 	RigidBody.h
+
+AM_CPPFLAGS = -I$(top_srcdir)/include

@@ -7,4 +7,4 @@ libcomplex_la_SOURCES = \
 	DT_Complex.cpp \
 	DT_Complex.h 
 
-AM_CPPFLAGS = -I../convex -I.. @DOUBLES_FLAG@ @TRACER_FLAG@
+AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src -I$(top_srcdir)/src/convex @DOUBLES_FLAG@ @TRACER_FLAG@

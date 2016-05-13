@@ -1,3 +1,9 @@
+ChangeLog for SOLID 3.5.5 02/10/2006
+                      * Fixed build for g++ 4.1.
+
+                      * Fixed automake files for building from configuration
+                        directories other than the top dir.
+
 ChangeLog for SOLID 3.5.4 29/08/2005
                       * Fixed consistency problem with Euler angles.
 

@@ -388,7 +388,7 @@ In order to build a SOLID core that uses scalar tracers, create Makefiles using
 Under Visual C++, the tracers are enabled using the @samp{-DUSE_TRACER}
 preprocessing flag.
 This option is very useful for debugging purposes.
-Makefiles for building debug binaries of SOLID are created using the
+Makefiles for building debug binaries of SOLILD are created using the
 @samp{--enable-debug} option.
   
 
@@ -556,7 +556,7 @@ For each complex shape, we specify a single array of vertices.
 Vertex arrays are maintained by the client application and can be
 accessed directly by SOLID. 
 Vertex arrays are accessed via vertex bases.
-De command @code{DT_NewVertexBase} creates a vertex base for 
+The command @code{DT_NewVertexBase} creates a vertex base for 
 the array given by the argument @code{pointer}. 
 The client must maintain vertex data in single-precision floating-point
 format.
