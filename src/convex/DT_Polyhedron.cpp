@@ -149,8 +149,17 @@ void prune(DT_Count count, T_MultiIndexBuf *cobound)
 
 				if (jt != cobound[i][j+1].end())
 				{
-					std::swap(*it, cobound[i][j].back());
-					cobound[i][j].pop_back();
+                     // Fix in case cobound becomes empty. Thanks Markus Rickert.
+                    if (it != cobound[i][j].end() - 1)
+                    {
+					    std::swap(*it, cobound[i][j].back());
+					    cobound[i][j].pop_back();
+                    }
+                    else
+                    {
+                        cobound[i][j].pop_back();
+                        break;
+                    }
 				}
 				else
 				{

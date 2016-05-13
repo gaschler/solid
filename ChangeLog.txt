@@ -1,3 +1,6 @@
+ChangeLog for SOLID 3.5.6 06/05/2007
+                      * Fixed bug in creation of Dobkin-Kirkpatrick hierarchy. Thanks Markus Rickert.
+
 ChangeLog for SOLID 3.5.5 02/10/2006
                       * Fixed build for g++ 4.1.
 
